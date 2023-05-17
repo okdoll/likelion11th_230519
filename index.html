@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Password Strength Checker JavaScript</title> 
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <div class="container">
+         <header>Password Strength Indicator</header>
+         <form action="#">
+            <div class="field">
+               <!--키를 누르고 뗄 때 이벤트를 감지하는 Password input 생성하기 / js function trigger 사용-->
+               <span class="showBtn">SHOW</span>
+            </div>
+            <div class="indicator">
+               <span class="weak"></span>
+               <span class="medium"></span>
+               <span class="strong"></span>
+            </div>
+            <div class="text"></div>
+         </form>
+      </div>
+
+      <script>
+         const indicator = document.querySelector(".indicator");
+         const input = //input 가져오기
+         const weak = 
+         const medium = 
+         const strong = 
+         // indicator > span 요소들 가져오기
+         
+         const text = //text class 가져오기
+         const showBtn = // showBtn 클래스 가져오기
+        
+         let regExpWeak = //변수 1 설정
+         let regExpMedium = //변수 2 설정
+         let regExpStrong = //변수 3 설정
+
+         function trigger(){
+           if(input.value != ""){
+             indicator.style.display = "block";
+             indicator.style.display = "flex";
+             
+             /* weak,medium,strong 조건 추가하기
+             if()no=1;
+             if()no=2;
+             if()no=3;
+              */
+
+             if(no==1){
+               weak.classList.add("active");
+               text.style.display = "block";
+              //  안내문구 출력
+              //  박스 출력
+             }
+
+             if(no==2){
+               //medium 조건 충족할 시
+             }else{
+               /*
+               .add된 이벤트 지워주기
+               */
+             }
+
+             if(no==3){
+               //strong 조건 충족할 시
+             }else{
+               /*
+               .add된 이벤트 지워주기
+               */
+             }
+
+             showBtn.style.display = "block";
+             showBtn.onclick = function(){
+               if(input.type == "password"){
+                 //password type text로 설정
+                 //showBtn => HIDE로 설정
+                 // 색상 설정
+               }else{
+                //password type password로 설정
+                 //showBtn => HIDE로 설정
+                 // 색상 설정
+               }
+             }
+           }else{
+             indicator.style.display = "none";
+             text.style.display = "none";
+             showBtn.style.display = "none";
+           }
+         }
+      </script>
+   </body>
+</html>
