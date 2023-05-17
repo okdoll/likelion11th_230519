@@ -107,13 +107,13 @@ form .indicator span.active:before{
   border-radius: 5px;
 }
 .indicator span.weak:before{
-  background-color: #FF6489; /* 예시로 빨간색 지정 */
+  background-color: #FF6489; 
 }
 .indicator span.medium:before{
-  background-color: #F0C34F; /* 예시로 주황색 지정 */
+  background-color: #F0C34F; 
 }
 .indicator span.strong:before{
-  background-color: #5DD9B4; /* 예시로 초록색 지정 */
+  background-color: #5DD9B4; 
 }
 /*
 6. weak, medium, strong 별로 박스 색상 설정하기

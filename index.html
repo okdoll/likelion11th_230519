@@ -10,7 +10,7 @@
          <header>Password Strength Indicator</header>
          <form action="#">
             <div class="field">
-               <!--키를 누르고 뗄 때 이벤트를 감지하는 Password input 생성하기 / js function trigger 사용-->
+               <input type="password" id="passwordInput" onkeyup="checkPasswordStrength(this.value)" /> 
                <span class="showBtn">SHOW</span>
             </div>
             <div class="indicator">
@@ -24,66 +24,59 @@
 
       <script>
          const indicator = document.querySelector(".indicator");
-         const input = //input 가져오기
-         const weak = 
-         const medium = 
-         const strong = 
-         // indicator > span 요소들 가져오기
-         
-         const text = //text class 가져오기
-         const showBtn = // showBtn 클래스 가져오기
+         const input = document.getElementById("passwordInput");
+         const weak = document.querySelector(".weak");
+         const medium = document.querySelector(".medium");
+         const strong = document.querySelector(".strong");
+         const text = document.querySelector(".text");
+         const showBtn = document.querySelector(".showBtn");
         
-         let regExpWeak = //변수 1 설정
-         let regExpMedium = //변수 2 설정
-         let regExpStrong = //변수 3 설정
+         let regExpWeak = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*?_~-]).{0,3}$/;
+         let regExpMedium = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*?_~-]).{4,5}$/;
+         let regExpStrong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*?_~-]).{6,}$/;
 
          function trigger(){
            if(input.value != ""){
              indicator.style.display = "block";
              indicator.style.display = "flex";
-             
-             /* weak,medium,strong 조건 추가하기
-             if()no=1;
-             if()no=2;
-             if()no=3;
-              */
 
-             if(no==1){
+             if(regExpWeak.test(input.value)){
                weak.classList.add("active");
+               text.textContent = "약함";
                text.style.display = "block";
-              //  안내문구 출력
-              //  박스 출력
+             } else {
+               weak.classList.remove("active");
              }
 
-             if(no==2){
-               //medium 조건 충족할 시
-             }else{
-               /*
-               .add된 이벤트 지워주기
-               */
+             if(regExpMedium.test(input.value)){
+               medium.classList.add("active");
+               text.textContent = "보통";
+               text.style.display = "block";
+             } else {
+               medium.classList.remove("active");
              }
 
-             if(no==3){
-               //strong 조건 충족할 시
-             }else{
-               /*
-               .add된 이벤트 지워주기
-               */
+             if(regExpStrong.test(input.value)){
+               strong.classList.add("active");
+               text.textContent = "강함";
+               text.style.display = "block";
+             } else {
+               strong.classList.remove("active");
              }
 
              showBtn.style.display = "block";
              showBtn.onclick = function(){
                if(input.type == "password"){
-                 //password type text로 설정
-                 //showBtn => HIDE로 설정
-                 // 색상 설정
-               }else{
-                //password type password로 설정
-                 //showBtn => HIDE로 설정
-                 // 색상 설정
+                 input.type = "text";
+                 showBtn.textContent = "HIDE";
+                 showBtn.style.backgroundColor = "#5364FF";
+               } else {
+                 input.type = "password";
+                 showBtn.textContent = "SHOW";
+                 showBtn.style.backgroundColor = "#ccc";
                }
              }
-           }else{
+           } else {
              indicator.style.display = "none";
              text.style.display = "none";
              showBtn.style.display = "none";
